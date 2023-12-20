@@ -21,14 +21,25 @@
             <%= link_to "EksiRails", root_path %>
           </div>
           <div class="flex items-center space-x-4 text-lg font-semibold tracking-tight">
-            <%= link_to "Sign in", new_user_session_path, class: "px-6 py-2 text-black transition duration-700 ease-out bg-white border border-black rounded-lg hover:bg-black hover:border hover:text-white dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black"%>
-            <%= link_to "Sign up", new_user_registration_path, class: "px-6 py-2 text-white transition duration-500 ease-out bg-blue-700 rounded-lg hover:bg-blue-800 hover:ease-in hover:underline" %>
+          <% if user_signed_in? %>
+              <%= link_to "New Topic", new_topic_path, class: "px-6 py-2 text-black transition duration-700 ease-out bg-white border border-black rounded-lg hover:bg-black hover:border hover:text-white dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black"%>
+              <%= button_to "Log Out", destroy_user_session_path, :method => :delete,class: "px-6 py-2 text-black transition duration-700 ease-out bg-white border border-black rounded-lg hover:bg-black hover:border hover:text-white dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black"%>
+          <% else %>
+              <%= link_to "Sign in", new_user_session_path, class: "px-6 py-2 text-black transition duration-700 ease-out bg-white border border-black rounded-lg hover:bg-black hover:border hover:text-white dark:border-white dark:bg-inherit dark:text-white dark:hover:bg-white dark:hover:text-black"%>
+              <%= link_to "Sign up", new_user_registration_path, class: "px-6 py-2 text-white transition duration-500 ease-out bg-blue-700 rounded-lg hover:bg-blue-800 hover:ease-in hover:underline" %>
+          <% end %>
           </div>
         </div>
       </nav>
       <div class="container">
         <div class="flex flex-row">
-          <div class="basis-2/12">Topics</div>
+          <div class="basis-2/12">
+            <h1>Topics</h1>
+            <br>
+            <% Topic.all.each do |topic| %>
+              <p><%= link_to topic.title + " (#{topic.posts.count}) ", topic%></p>
+            <% end %>
+          </div>
           <div class="basis-8/12"><%= yield %></div>
           <div class="basis-2/12">Extra</div>
         </div>

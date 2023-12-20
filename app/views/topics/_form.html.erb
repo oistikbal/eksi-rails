@@ -1,0 +1,28 @@
+<%= form_with(model: topic) do |form| %>
+  <% if topic.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(topic.errors.count, "error") %> prohibited this topic from being saved:</h2>
+
+      <ul>
+        <% topic.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title, "Topic title" %>
+    <%= form.text_field :title %>
+  </div>
+  <h2>New Post</h2>
+  <div>
+    <%= form.fields_for :posts do |post_subform| %>
+      <%= post_subform.label :body %>
+      <%= post_subform.text_area :body %>
+    <% end %>
+  </div>
+  <div>
+    <%= form.submit "Create Topic with a Post"%>
+  </div>
+<% end %>
