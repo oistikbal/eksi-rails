@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   get "/topics/new", to: "topics#new", as: :new_topic
   post "/topics", to: "topics#create", as: :topics
   get "/topics/:id", to: "topics#show", as: :topic
+  post "/posts", to: "posts#create"
 end
