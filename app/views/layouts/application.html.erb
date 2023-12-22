@@ -34,14 +34,13 @@
       <div class="container">
         <div class="flex flex-row">
           <div class="basis-2/12">
-            <h1>Topics</h1>
-            <br>
+            <p class="font-bold text-3xl mb-3">Topics</p>
             <% Topic.all.each do |topic| %>
-              <p><%= link_to topic.title + " (#{topic.posts.count}) ", topic%></p>
+              <p class="pb-1.5 hover:bg-gray-100"><%= link_to topic.title + " (#{topic.posts.count}) ", topic%></p>
             <% end %>
           </div>
           <div class="basis-8/12"><%= yield %></div>
-          <div class="basis-2/12">Extra</div>
+          <div class="basis-2/12 font-bold text-3xl mb-3">Extra</div>
         </div>
       </div>
 

@@ -10,13 +10,10 @@
       </ul>
     </div>
   <% end %>
-  <div>
+  <div class="pb-7 mx-6">
     <%= form.hidden_field :topic_id%>
-    <%= form.label :body  %>
     <%= form.text_field :body %>
-  </div>
-  <h2>New Post</h2>
-  <div>
+    <br>
     <%= form.submit "Create New post"%>
   </div>
 <% end %>
