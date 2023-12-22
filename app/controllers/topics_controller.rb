@@ -3,6 +3,7 @@ class TopicsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
   def show
+    @pagy, @posts = pagy(@topic.posts)
   end
 
   def new
@@ -24,7 +25,7 @@ class TopicsController < ApplicationController
 
   private
   def topics_post_params
-    params.require(:topic).permit(:title, posts_attributes: [ :body])
+    params.require(:topic).permit(:title, posts_attributes: [:body])
   end
 
   def set_topic

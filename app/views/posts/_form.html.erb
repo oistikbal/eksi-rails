@@ -10,10 +10,10 @@
       </ul>
     </div>
   <% end %>
-  <div class="pb-7 mx-6">
+  <div class="pb-7 mx-6 rounded-md">
     <%= form.hidden_field :topic_id%>
-    <%= form.text_field :body %>
+    <%= form.text_area :body %>
     <br>
-    <%= form.submit "Create New post"%>
+    <%= form.submit "Create New post", class: "middle none center rounded-lg py-3 px-6 font-sans text-xs font-bold uppercase text-slate-800 transition-all hover:bg-sky-300 active:bg-sky-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"%>
   </div>
 <% end %>

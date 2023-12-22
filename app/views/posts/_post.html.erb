@@ -2,7 +2,7 @@
   <p><%= post.body %></p>
   <div class="flex flex-row mt-3 text-sky-100 text-bold">
     <div class="flex flex-col ml-auto mr-2">
-      <%= link_to post.user.email, "#", class:"text-right"%>
+      <%= link_to post.user.email, "#", class:"text-right text-slate-700"%>
       <%= link_to post.created_at.to_formatted_s(:db)  , post, class: "text-right text-xs text-gray-500"%>
     </div>
     <%= image_tag avatar_url(post.user), class: "rounded-full h-9 w-9 hover:object-scale-up ml-0" %>
