@@ -15,4 +15,11 @@ Rails.application.routes.draw do
 
   post "/posts", to: "posts#create"
   get "/posts/:id", to: "posts#show", as: :post
+
+  namespace :api do
+    namespace :v1 do
+      get "/topics", to: "topics#index"
+      get "/topics/:id", to: "topics#show"
+    end
+  end
 end
