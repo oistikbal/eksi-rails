@@ -5,6 +5,6 @@ class PostSerializer
   attributes :body
   belongs_to :topic
   attribute :user_mail do |post|
-    "#{post.user.email}"
+    post.user.email
   end
 end

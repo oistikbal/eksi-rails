@@ -10,10 +10,13 @@
       </ul>
     </div>
   <% end %>
-  <div class="pb-7 mx-6 rounded-md">
+
+  <div class="max-w w-full bg-white p-8 rounded-lg">
     <%= form.hidden_field :topic_id%>
-    <%= form.text_area :body %>
+    <%= form.label :body, "New Post", class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_area :body, placeholder: "What's on your mind?" ,class: "w-full border-2 rounded-md px-4 py-2 leading-5 transition duration-150 ease-in-out sm:text-sm
+        sm:leading-5 focus:outline-none focus:border-blue-500 h-32"%>
     <br>
-    <%= form.submit "Create New post", class: "middle none center rounded-lg py-3 px-6 font-sans text-xs font-bold uppercase text-slate-800 transition-all hover:bg-sky-300 active:bg-sky-500/30 disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"%>
+    <%= form.button "Post" , class: "items-center bg-blue-500 hover:bg-blue-600 focus:outline-none focus:shadow-outline-blue text-white py-2 px-4 rounded-md transition duration-300 gap-2 my-5" %>
   </div>
 <% end %>

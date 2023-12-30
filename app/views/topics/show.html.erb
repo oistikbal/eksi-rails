@@ -4,9 +4,8 @@
   <%= render @posts%>
 </div>
 
-<br>
+<div class="text-center pb-8"><%== pagy_nav(@pagy, pagy_id: @topic.id)%></div>
+
 <% if user_signed_in? %>
   <div class="text-center"><%= render partial: "posts/form", locals: {post: @topic.posts.new }%></div>
 <% end %>
-
-<div class="text-center pb-8"><%== pagy_nav(@pagy, pagy_id: @topic.id)%></div>
